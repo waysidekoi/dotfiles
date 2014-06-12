@@ -5,7 +5,7 @@ echo "Install Vim"
 echo ""
 
 # install distro version before installing from source
-apt-get install -y vim
+sudo apt-get install -y vim
 TARGET_VIM="7.4"
 CURRENT_VIM=$(vim --version | grep 'Vi IMproved' | awk '{ print $5 }')
 echo "ensure $TARGET_VIM == $CURRENT_VIM"
@@ -13,7 +13,7 @@ if [ "$CURRENT_VIM" == "$TARGET_VIM" ]; then
   log "skipping" "vim $TARGET_VIM already installed"
 else
   log "source-install" "vim"
-  fakeroot apt-get install -y \
+  sudo apt-get install -y \
     libncurses5-dev \
     libgnome2-dev \
     libgnomeui-dev \

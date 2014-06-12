@@ -6,18 +6,17 @@ log () {
 export -f log
 export PATH=$HOME/bin:$PATH
 
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/prepare | sh
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_packages | sh
+~/code/dotfiles/lib/prepare
+~/code/dotfiles/lib/install_packages
 
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_zsh | sh
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_vim | sh
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_tmux | sh
+~/code/dotfiles/lib/install_zsh
+~/code/dotfiles/lib/install_vim
+~/code/dotfiles/lib/install_tmux
 
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_rbenv | sh
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_ruby | sh
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_gems | sh
+~/code/dotfiles/lib/install_rbenv
+~/code/dotfiles/lib/install_ruby
+~/code/dotfiles/lib/install_gems
 
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_dotfiles | sh
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_vim_plugins | sh
-
+~/code/dotfiles/lib/install_dotfiles
+~/code/dotfiles/lib/install_vim_plugins
 log "done"

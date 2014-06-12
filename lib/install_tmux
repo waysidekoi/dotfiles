@@ -7,7 +7,7 @@ if [ "$current_tmux" == "$target_tmux" ]; then
   log "skipping" "tmux $target_tmux already installed"
 else
   log "source-install" "tmux"
-  fakeroot apt-get install -y \
+  sudo apt-get install -y \
     libevent-1.4 \
     libevent-dev \
     libncurses5-dev \

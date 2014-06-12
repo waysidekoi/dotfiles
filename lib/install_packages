@@ -2,7 +2,7 @@
 
 log "install" "packages"
 
-apt-get install -y \
+sudo apt-get install -y \
   curl               \
   build-essential    \
   git-core           \

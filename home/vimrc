@@ -79,7 +79,7 @@ Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-endwise'
 
 " themes
-" Bundle 'thedeeno/molokai'
+Bundle 'thedeeno/molokai'
 " Bundle 'flazz/vim-colorschemes'
 " Bundle 'altercation/vim-colors-solarized'
 
@@ -260,7 +260,8 @@ set ttyfast
 " COLOR
 " ----------------------------------------------------------------------------
 syntax enable
-colorscheme jellybeans
+" colorscheme jellybeans
+colorscheme molokai
 " :color grb256
 
 " ----------------------------------------------------------------------------
@@ -293,7 +294,7 @@ set ttimeoutlen=50
 let mapleader=","
 
 " less pinky
-nnoremap <SPACE> :w<CR>
+nnoremap <ENTER> :w<CR>
 " inoremap 5 "
 " inoremap 7 '
 " inoremap dfj "
@@ -336,6 +337,10 @@ nmap <C-a> ggVG
 
 " fast quit
 nmap <leader>q :q<CR>
+
+" move lines up/down
+nnoremap zk ddkP
+nnoremap zj ddp
 
 " overide built in ack mapping
 map <C-f> :Ag<space>
