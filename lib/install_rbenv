@@ -3,7 +3,7 @@
 log "install", "rbenv"
 git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-fakeroot apt-get install -y \
+sudo apt-get install -y \
   libreadline-dev \
   libssl-dev \
   zlib1g-dev
