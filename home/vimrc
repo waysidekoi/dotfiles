@@ -21,13 +21,14 @@ Bundle 'terryma/vim-expand-region'
 " plugins
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-abolish.git'
 Bundle 'tpope/vim-rake.git'
 Bundle 'tpope/vim-bundler.git'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'slim-template/vim-slim.git'
+Bundle 'digitaltoad/vim-jade.git'
 
 " theming
 " font patches installed to ~/.fonts and configured in ~/.fonts.conf.d
@@ -81,7 +82,7 @@ Bundle 'tpope/vim-endwise'
 
 " themes
 " Bundle 'thedeeno/molokai'
-" Bundle 'flazz/vim-colorschemes'
+Bundle 'flazz/vim-colorschemes'
 " Bundle 'altercation/vim-colors-solarized'
 
 
@@ -182,9 +183,13 @@ let g:airline_symbols.branch = '⎇'
 " endif
 
 " ----------------------------------------------------------------------------
+" Copy pasta
+" ----------------------------------------------------------------------------
+set clipboard=unnamedplus
+
+" ----------------------------------------------------------------------------
 " Search
 " ----------------------------------------------------------------------------
-
 set nohlsearch  " don't highlight matches
 set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
@@ -261,7 +266,7 @@ set ttyfast
 " COLOR
 " ----------------------------------------------------------------------------
 syntax enable
-colorscheme jellybeans
+colorscheme molokai
 " :color grb256
 
 " ----------------------------------------------------------------------------
@@ -281,6 +286,8 @@ if has('gui_running')
   " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#1E1D1B ctermbg=4
 endif
 
+let loaded_matchparen = 1 " disable matching paren plugin
+
 " ----------------------------------------------------------------------------
 "  Remapping
 " ----------------------------------------------------------------------------
@@ -294,7 +301,10 @@ set ttimeoutlen=50
 let mapleader=","
 
 " less pinky
-nnoremap <SPACE> :w<CR>
+nnoremap <ENTER> :w<CR>
+
+nnoremap zj ddp
+nnoremap zk ddkP
 " inoremap 5 "
 " inoremap 7 '
 " inoremap dfj "
@@ -303,7 +313,7 @@ nnoremap <SPACE> :w<CR>
 " inoremap dfn _
 " NERD Tree
 " nmap <leader>n :NERDTreeFind<CR>
-let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeQuitOnOpen = 0
 let g:NERDTreeShowHidden = 1
 nnoremap <leader>nn :NERDTree<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
@@ -454,9 +464,9 @@ nmap <leader><leader>st :call StripWhitespace ()<CR>
 " ---------------------------------------------------------------------------
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 " ---------------------------------------------------------------------------
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e :edit %%
-map <leader>v :view %%
+" cnoremap %% <C-R>=expand('%:h').'/'<cr>
+" map <leader>e :edit %%
+" map <leader>v :view %%
 
 " ---------------------------------------------------------------------------
 " Window Management
@@ -486,6 +496,13 @@ nnoremap gH              :wincmd H<cr>
 nnoremap gK              :wincmd K<cr>
 nnoremap gL              :wincmd L<cr>
 nnoremap gJ              :wincmd J<cr>
+
+" auto resizing
+autocmd VimResized * :wincmd =
+
+" zoom a vim pane, <C-w>= to -rebalance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
 
 " ---------------------------------------------------------------------------
 " Syntax highlighting
@@ -704,6 +721,7 @@ let g:vroom_map_keys = 0
 let g:vroom_use_vimux = 1
 nnoremap <leader>f :VroomRunNearestTest<CR>
 nnoremap <leader>t :VroomRunTestFile<CR>
+nnoremap <leader>vq :VimuxCloseRunner<CR>
 
 " ---------------------------------------------------------------------------
 " Screen Settings
@@ -754,8 +772,3 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 " 
 " set foldmethod=expr
 " set foldexpr=CSSFolds()
-
-" setup vim helpers
-source /home/dane/code/vim-helpers/plugin/generators.vim
-nmap <leader>gc :call GenerateRubyClassDefinition()<CR>
-
