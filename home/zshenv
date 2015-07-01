@@ -12,8 +12,8 @@ export PATH="$ZSH/bin:$PATH"
 export PATH="$HOME/.node/bin:$PATH"
 export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules
 
-# RUBY
-export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+# RUBY - if using RVM
+#export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 
 # GOLANG - tools
 export PATH="/usr/local/go/bin:$PATH"

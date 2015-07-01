@@ -16,7 +16,8 @@ for file in $HOME/.zsh/*.zsh; do
   fi
 done
 
-eval "$(rbenv init -)"
+# In event of RVM
+#eval "$(rbenv init -)"
 
 # use dvorak as the basis for spell checking
 # setopt DVORAK
@@ -27,3 +28,5 @@ if [[ ! $TERM =~ screen ]]; then
   $(tmux)
 fi
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

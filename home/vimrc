@@ -104,8 +104,8 @@ nnoremap ,w W
 " tell it where it is from the get go. This is literally 200x faster.
 " test with: vim --startuptime /path/to/perf.log /path/to/ruby/file
 "
-" path to rbenv ruby
-let g:ruby_path = system('echo $HOME/.rbenv/shims')
+" path to rbenv ruby -- disabling if using RVM
+"let g:ruby_path = system('echo $HOME/.rbenv/shims')
 
 " ---------------------------------------------------------------------------
 " Core

@@ -13,11 +13,11 @@ alias pubkey="more ~/.ssh/id_dsa.public | pbcopy | echo '=> Public key copied to
 # cd
 alias ..='cd ..'
 
-# ls aliases
-alias ll='ls -l --color --group-directories-first'
-alias la='ls -A --color'
-alias l='ls -CF --color'
-alias ls='ls -o --color --group-directories-first'
+# ls aliases - invalid with iterm?
+#alias ll='ls -l --color --group-directories-first'
+# alias la='ls -A --color'
+# alias l='ls -CF --color'
+# alias ls='ls -o --color --group-directories-first'
 
 # ruby
 alias be='bundle exec'
