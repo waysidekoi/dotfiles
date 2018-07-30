@@ -1,4 +1,7 @@
 #!/bin/bash
 
-log "install" "zsh"
+echo ""
+echo "Install zsh"
+echo ""
+
 chsh -s $(which zsh)

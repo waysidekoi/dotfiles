@@ -1,32 +1,7 @@
 #!/bin/bash
 
-log "tmux"
-current_tmux=$(tmux -V | awk '{ print $2 }')
-target_tmux="1.9a"
-if [ "$current_tmux" == "$target_tmux" ]; then
-  log "skipping" "tmux $target_tmux already installed"
-else
-  log "source-install" "tmux"
-  sudo apt-get install -y \
-    libevent-1.4 \
-    libevent-dev \
-    libncurses5-dev \
-    automake \
-    autotools-dev \
-    libltdl-dev \
-    libtool \
-    autoconf \
-    autopoint \
-    pkg-config
-  git clone git://git.code.sf.net/p/tmux/tmux-code $HOME/code/tmux-code
-  (
-    cd $HOME/code/tmux-code
-    git tag -l
-    git checkout tags/1.9a
-    ./autogen.sh
-    ./configure
-    make
-    cp tmux $HOME/bin/
-  )
-fi
+echo ""
+echo "Install tmux"
+echo ""
 
+brew install tmux

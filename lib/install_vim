@@ -4,40 +4,5 @@ echo ""
 echo "Install Vim"
 echo ""
 
-# install distro version before installing from source
-sudo apt-get install -y vim
-TARGET_VIM="7.4"
-CURRENT_VIM=$(vim --version | grep 'Vi IMproved' | awk '{ print $5 }')
-echo "ensure $TARGET_VIM == $CURRENT_VIM"
-if [ "$CURRENT_VIM" == "$TARGET_VIM" ]; then
-  log "skipping" "vim $TARGET_VIM already installed"
-else
-  log "source-install" "vim"
-  sudo apt-get install -y \
-    libncurses5-dev \
-    libgnome2-dev \
-    libgnomeui-dev \
-    libgtk2.0-dev \
-    libatk1.0-dev \
-    libbonoboui2-dev \
-    libcairo2-dev \
-    libx11-dev \
-    libxpm-dev \
-    libxt-dev \
-    python-dev \
-    ruby-dev \
-    mercurial
-  hg clone https://code.google.com/p/vim/ $HOME/code/vim
-  (
-    cd $HOME/code/vim
-    ./configure --with-features=huge \
-      --enable-rubyinterp \
-      --enable-pythoninterp \
-      --enable-perlinterp \
-      --enable-gui=gtk2 --enable-cscope --prefix=/usr
-    make VIMRUNTIMEDIR=/usr/share/vim/vim73
-    cp src/vim $HOME/bin/
-  )
-fi
-
-
+brew install vim \
+  macvim

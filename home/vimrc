@@ -1,12 +1,12 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " My Bundles here
 " text objects
@@ -171,7 +171,7 @@ let g:airline_symbols.branch = '⎇'
 " endfunction
 
 " if has("statusline") && !&cp
-" 
+"
 "   " Start the status line
 "   set statusline=%f\ %m\ %r
 "   set statusline+=%{fugitive#statusline()}
@@ -364,7 +364,7 @@ nnoremap <silent> g. @:
 
 " fugative
 nnoremap gs :Gstatus<CR>
-nnoremap gm :Gmove 
+nnoremap gm :Gmove
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
@@ -437,7 +437,7 @@ nnoremap g6 ^
 "
 
 " ---------------------------------------------------------------------------
-" Whitespace 
+" Whitespace
 " ---------------------------------------------------------------------------
 
 set nowrap                        " don't wrap lines
@@ -475,13 +475,13 @@ nmap <leader><leader>st :call StripWhitespace ()<CR>
 " Window Management
 " ---------------------------------------------------------------------------
 " opening and switching
-function! WinMove(key) 
+function! WinMove(key)
   let t:curwin = winnr()
   exec "wincmd ".a:key
   if (t:curwin == winnr()) "we havent moved
     if (match(a:key,'[jk]')) "were we going up/down
       wincmd v
-    else 
+    else
       wincmd s
     endif
     exec "wincmd ".a:key
@@ -565,8 +565,8 @@ endfunction
 " ---------------------------------------------------------------------------
 " Turn off active error checking for slow-to-compile languages
 "
-" there may be a way to speed up the checking but this fix works and I care 
-" more about fast buffer switching than syntax checking. 
+" there may be a way to speed up the checking but this fix works and I care
+" more about fast buffer switching than syntax checking.
 " ---------------------------------------------------------------------------
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
@@ -754,7 +754,7 @@ let g:mediummode_enabled=0
 nnoremap <leader>2 :%s/\<<C-r><C-w>\>//g<Left><Left>
 " ask for confirmation
 nnoremap <leader>3 :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
- 
+
 " Substitute selection globally
 vnoremap <C-s> y<Esc>:%s/<C-r>"//g<Left><Left>
 " ask for confirmation
@@ -772,6 +772,6 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 "     return ">0"
 "   endif
 " endfunction
-" 
+"
 " set foldmethod=expr
 " set foldexpr=CSSFolds()

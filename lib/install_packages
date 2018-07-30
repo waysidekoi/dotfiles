@@ -1,19 +1,11 @@
 #!/bin/bash
 
-log "install" "packages"
+echo ""
+echo "Install packages"
+echo ""
 
-sudo apt-get install -y \
-  curl               \
-  build-essential    \
-  git-core           \
-  git-gui            \
-  gitg               \
-  libssl-dev         \
-  libxml2-dev        \
-  libxslt-dev        \
-  openssl            \
-  grep               \
-  zsh                \
-  guake              \
-  compizconfig-settings-manager
+# Install git
+brew install git
 
+# Install brew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

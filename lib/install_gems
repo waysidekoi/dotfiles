@@ -1,9 +1,8 @@
 #!/bin/bash
 
+echo ""
+echo "Install gems: pry"
+echo ""
+
 gem install          \
-  pry                \
-  pry-doc            \
-  pry-debugger       \
-  pry-stack_explorer \
-  pry-rails          \
-  awesome_print      \
+  pry
