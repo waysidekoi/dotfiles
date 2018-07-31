@@ -1,7 +1,7 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
@@ -15,18 +15,22 @@ Bundle 'kana/vim-textobj-user'
 " Bundle 'kana/vim-textobj-entire'
 " Bundle 'kana/vim-textobj-indent'
 Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'terryma/vim-expand-region'
+" Bundle 'terryma/vim-expand-region'
 " Bundle 'camelcasemotion'
 
 " plugins
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-rake.git'
 Bundle 'tpope/vim-bundler.git'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree.git'
+Bundle "scrooloose/nerdtree.git"
 Bundle 'Valloric/YouCompleteMe'
+
+" YouCompleteMe
+let g:ycm_python_binary_path = '/usr/local/bin/python3'
+let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
 
 " theming
 " font patches installed to ~/.fonts and configured in ~/.fonts.conf.d
@@ -54,11 +58,11 @@ Bundle 'rking/ag.vim'
 " folding
 
 " syntax
-Bundle 'kchmck/vim-coffee-script'
+" Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-haml.git'
-Bundle 'groenewege/vim-less'
-Bundle 'chakrit/upstart.vim'
+" Bundle 'tpope/vim-haml.git'
+" Bundle 'groenewege/vim-less'
+" Bundle 'chakrit/upstart.vim'
 
 " Bundle 'skammer/vim-css-color'
 
@@ -66,7 +70,7 @@ Bundle 'chakrit/upstart.vim'
 " Bundle 'kbarrette/mediummode'
 
 " motions
-Bundle 'justinmk/vim-sneak'
+" Bundle 'justinmk/vim-sneak'
 " Bundle 'Lokaltog/vim-easymotion'
 
 "  manipulators
@@ -80,7 +84,7 @@ Bundle 'tpope/vim-endwise'
 
 " themes
 " Bundle 'thedeeno/molokai'
-Bundle 'flazz/vim-colorschemes'
+" Bundle 'flazz/vim-colorschemes'
 " Bundle 'altercation/vim-colors-solarized'
 
 
@@ -133,13 +137,14 @@ set hidden
 " add keystrokes to status line
 set showcmd
 set nocursorline
+set lazyredraw
 
 " ----------------------------------------------------------------------------
 " Status Line
 " ----------------------------------------------------------------------------
 set laststatus=2  " always show the status bar
 
-let g:airline_theme = 'monochrome'
+" let g:airline_theme = 'monochrome'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#hunks#enabled = 0
 
@@ -183,7 +188,7 @@ let g:airline_symbols.branch = '⎇'
 " ----------------------------------------------------------------------------
 " Copy pasta
 " ----------------------------------------------------------------------------
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " ----------------------------------------------------------------------------
 " Search
@@ -775,3 +780,6 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 "
 " set foldmethod=expr
 " set foldexpr=CSSFolds()
+
+call vundle#end()            " required
+filetype plugin indent on    " required

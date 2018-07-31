@@ -16,8 +16,6 @@ for file in $HOME/.zsh/*.zsh; do
   fi
 done
 
-eval "$(rbenv init -)"
-
 # use dvorak as the basis for spell checking
 # setopt DVORAK
 unsetopt correct_all
@@ -26,4 +24,3 @@ unsetopt correct_all
 if [[ ! $TERM =~ screen ]]; then
   $(tmux)
 fi
-

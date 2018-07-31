@@ -1,30 +1,11 @@
-
 # LSCOLORS (see http://geoff.greer.fm/lscolors/) BSD
-export LSCOLORS="gxfxdxdxcxegedabagacad"
+export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
 export LS_COLORS="di=36;40:ln=35;40:so=33;40:pi=33;40:ex=32;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
 
 # PATH
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$ZSH/bin:$PATH"
-
-# NODE
-export PATH="$HOME/.node/bin:$PATH"
-export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules
-
-# RUBY
-export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
-
-# GOLANG - tools
-export PATH="/usr/local/go/bin:$PATH"
-# GOLANG - workspace
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-#ANDROID
-export ANDROID_HOME="$HOME/tools/android-sdk-linux"
-export PATH="$HOME/tools/android-sdk-linux/tools:$PATH"
-export PATH="$HOME/tools/android-sdk-linux/platform-tools:$PATH"
 
 # MISC
 export EDITOR='vim'

@@ -1,23 +1,11 @@
 alias reload!='. ~/.zshrc'
 alias e='vim'
 
-# vagrant
-alias vs="vagrant status"
-alias vu="vagrant up"
-alias vp="vagrant provision"
-
-# ssh keys
-# pipe public key to clipboard.
-alias pubkey="more ~/.ssh/id_dsa.public | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias vim='/usr/local/bin/mvim -v'
 
 # cd
 alias ..='cd ..'
 
-# ls aliases
-alias ll='ls -l --color --group-directories-first'
-alias la='ls -A --color'
-alias l='ls -CF --color'
-alias ls='ls -o --color --group-directories-first'
 
 # ruby
 alias be='bundle exec'
@@ -38,18 +26,13 @@ alias eb='export PATH=./bin:$PATH'
 
 # docker
 alias dk='docker'
-alias gear='nocorrect gear'
-alias gearbox="sudo -E bundle exec gearbox"
 
-# knife
-alias kcu='knife cookbook upload'
-alias krff='knife role from file' 
 
 # shortcut to add aliases
 alias zea='$EDITOR ~/.zsh/aliases.zsh'
 
 # todo.sh: https://github.com/ginatrapani/todo.txt-cli
-function t() { 
+function t() {
   if [ $# -eq 0 ]; then
     todo.sh ls
   else

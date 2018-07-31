@@ -7,10 +7,9 @@ echo ""
 # install vim vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+# compile YCM
+brew install cmake
+cd ~/.vim/bundle/YouCompleteMe; ./install.py --clang-completer
+
 # install plugins
-vim -e +PluginInstall +qall
-# compile plugins
-sudo apt-get install -y \
-  cmake \
-  python-dev
-(cd $HOME/.vim/bundle/YouCompleteMe; ./install.sh)
+mvim -ve +PluginInstall +qall
