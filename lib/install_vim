@@ -4,5 +4,8 @@ echo ""
 echo "Install Vim"
 echo ""
 
-brew install vim \
-  macvim
+brew rm vim macvim python
+brew install python
+brew install vim --with-override-system-vi
+brew install macvim --with-override-system-vim
+brew link --overwrite macvim
