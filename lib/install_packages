@@ -6,12 +6,14 @@ echo "Install packages"
 echo ""
 
 if ! [ -x "$(command -v brew)" ];
+then
   # Install brew
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   brew update
 fi
 
 if ! [ -x "$(command -v git)" ];
+then
   # Install git
   brew install git
 fi
