@@ -4,4 +4,8 @@ echo ""
 echo "Install zsh"
 echo ""
 
+if ! [ -x "$(command -v zsh)" ];
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
 chsh -s $(which zsh)

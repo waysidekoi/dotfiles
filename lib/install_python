@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+echo ""
+echo "Install python3"
+echo ""
+
+brew install python
+python --version

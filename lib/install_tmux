@@ -4,4 +4,6 @@ echo ""
 echo "Install tmux"
 echo ""
 
-brew install tmux
+if ! [ -x "$(command -v tmux)" ];
+  brew install tmux
+fi

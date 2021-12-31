@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+echo ""
+echo "Install ruby"
+echo ""
+
+brew install ruby

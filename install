@@ -5,13 +5,14 @@ export PATH=$HOME/bin:$PATH
 ~/code/dotfiles/lib/prepare
 ~/code/dotfiles/lib/install_packages
 
+~/code/dotfiles/lib/install_python
+~/code/dotfiles/lib/install_ruby
+
 ~/code/dotfiles/lib/install_zsh
 ~/code/dotfiles/lib/install_macvim
 ~/code/dotfiles/lib/install_tmux
 
 ~/code/dotfiles/lib/install_rvm
-~/code/dotfiles/lib/install_ruby
-~/code/dotfiles/lib/install_gems
 
 ~/code/dotfiles/lib/install_dotfiles
 ~/code/dotfiles/lib/install_vim_plugins

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+echo ""
+echo "Install macvim"
+echo ""
+
+brew install vim && brew install macvim
+brew link macvim

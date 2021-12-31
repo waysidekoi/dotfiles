@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 echo ""
 echo "Install vim plugins"
@@ -8,8 +9,8 @@ echo ""
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # compile YCM
-brew install cmake
-cd ~/.vim/bundle/YouCompleteMe; ./install.py --clang-completer
+brew install cmake mono go nodejs
+cd ~/.vim/bundle/YouCompleteMe; python3 install.py --all
 
 # install plugins
-mvim -ve +PluginInstall +qall
+vim +PlugInstall +qall

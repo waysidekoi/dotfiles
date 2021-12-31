@@ -10,30 +10,33 @@ Plugin 'VundleVim/Vundle.vim'
 
 " My Bundles here
 " text objects
-Bundle 'kana/vim-textobj-user'
+" Bundle 'kana/vim-textobj-user'
 " Bundle 'kana/vim-textobj-line'
 " Bundle 'kana/vim-textobj-entire'
 " Bundle 'kana/vim-textobj-indent'
-Bundle 'nelstrom/vim-textobj-rubyblock'
+" Bundle 'nelstrom/vim-textobj-rubyblock'
 " Bundle 'terryma/vim-expand-region'
 " Bundle 'camelcasemotion'
 
 " plugins
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-rake.git'
-Bundle 'tpope/vim-bundler.git'
+" Bundle 'tpope/vim-rails.git'
+" Bundle 'tpope/vim-rake.git'
+" Bundle 'tpope/vim-bundler.git'
 Bundle 'tomtom/tcomment_vim.git'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle "scrooloose/nerdtree.git"
 Bundle 'Valloric/YouCompleteMe'
 
 " YouCompleteMe
-let g:ycm_python_binary_path = '/usr/local/bin/python3'
-let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
+" delete me if unnecessary
+" let g:ycm_python_binary_path = '/usr/local/bin/python2'
+" let g:ycm_server_python_interpreter = '/usr/local/bin/python2'
 
 " theming
 " font patches installed to ~/.fonts and configured in ~/.fonts.conf.d
+Bundle 'tpope/vim-fugitive'
+
 Bundle 'bling/vim-airline'
 Bundle 'nanotech/jellybeans.vim'
 " Bundle 'https://github.com/gorodinskiy/vim-coloresque.git'
@@ -43,7 +46,6 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'benmills/vimux'
 
 " integration - git
-Bundle 'tpope/vim-fugitive'
 Bundle 'mhinz/vim-signify'
 
 "   testing
@@ -58,11 +60,7 @@ Bundle 'rking/ag.vim'
 " folding
 
 " syntax
-" Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-ruby/vim-ruby'
-" Bundle 'tpope/vim-haml.git'
-" Bundle 'groenewege/vim-less'
-" Bundle 'chakrit/upstart.vim'
 
 " Bundle 'skammer/vim-css-color'
 
@@ -74,7 +72,7 @@ Bundle 'vim-ruby/vim-ruby'
 " Bundle 'Lokaltog/vim-easymotion'
 
 "  manipulators
-Bundle 'AndrewRadev/switch.vim'
+" Bundle 'AndrewRadev/switch.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround.git'
@@ -101,23 +99,12 @@ runtime macros/matchit.vim
 nnoremap ,w W
 
 " ---------------------------------------------------------------------------
-" Ruby Path
-" ---------------------------------------------------------------------------
-" This is a work around for ftplugin/ruby.vim. If it doesn't know the ruby
-" path it'll make a slow system call to look it up. Instead, let's just
-" tell it where it is from the get go. This is literally 200x faster.
-" test with: vim --startuptime /path/to/perf.log /path/to/ruby/file
-"
-" path to rbenv ruby
-let g:ruby_path = system('echo $HOME/.rbenv/shims')
-
-" ---------------------------------------------------------------------------
 " Core
 " ---------------------------------------------------------------------------
 
-set relativenumber    " Show line numbers
+" set relativenumber    " Show line numbers
 set number            " Show abosulte number
-set ruler             " Show line and column number
+" set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
 
@@ -144,7 +131,7 @@ set lazyredraw
 " ----------------------------------------------------------------------------
 set laststatus=2  " always show the status bar
 
-" let g:airline_theme = 'monochrome'
+let g:airline_theme = 'monochrome'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#hunks#enabled = 0
 
@@ -167,7 +154,7 @@ endif
 " let g:airline_symbols.linenr = '␊'
 " let g:airline_symbols.linenr = '␤'
 " let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.branch = '⎇'
 " let g:airline_symbols.paste = 'ρ'
 " let g:airline_symbols.paste = 'Þ'
 " let g:airline_symbols.paste = '∥'
@@ -239,24 +226,24 @@ endfunction
 " Turn on filetype plugins (:help filetype-plugin)
 filetype plugin indent on
 
-if has("autocmd")
-  " In Makefiles, use real tabs, not tabs expanded to spaces
-  au FileType make setlocal noexpandtab
-
-  " Make sure all mardown files have the correct filetype set and setup wrapping
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
-
-  " Treat JSON files like JavaScript
-  au BufNewFile,BufRead *.json set ft=javascript
-
-  " make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
-  au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
-
-  " Remember last location in file, but not for commit messages.
-  " see :help last-position-jump
-  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g`\"" | endif
-endif
+" if has("autocmd")
+"   " In Makefiles, use real tabs, not tabs expanded to spaces
+"   au FileType make setlocal noexpandtab
+"
+"   " Make sure all mardown files have the correct filetype set and setup wrapping
+"   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
+"
+"   " Treat JSON files like JavaScript
+"   au BufNewFile,BufRead *.json set ft=javascript
+"
+"   " make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
+"   au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
+"
+"   " Remember last location in file, but not for commit messages.
+"   " see :help last-position-jump
+"   au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+"     \| exe "normal! g`\"" | endif
+" endif
 
 " ----------------------------------------------------------------------------
 " Terminal Discovery
@@ -276,19 +263,19 @@ colorscheme molokai
 " ----------------------------------------------------------------------------
 " GUI options
 " ----------------------------------------------------------------------------
-if has('gui_running')
-  " set guioptions-=T          " turn off tool bar in gvim/mvim
-  set guioptions=agim        " work around text rendering bug (nerd tree causes text to disappear)
-  " set guioptions-=m          " turn off menu bar in gvim/mvim
-  set showtabline=0          " never show the tab bar
-
-  " configure indent guides
-  let g:indent_guides_start_level = 1
-  let g:indent_guides_guide_size  = 2
-  " let g:indent_guides_auto_colors = 0
-  " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#222827 ctermbg=3
-  " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#1E1D1B ctermbg=4
-endif
+" if has('gui_running')
+"   " set guioptions-=T          " turn off tool bar in gvim/mvim
+"   set guioptions=agim        " work around text rendering bug (nerd tree causes text to disappear)
+"   " set guioptions-=m          " turn off menu bar in gvim/mvim
+"   set showtabline=0          " never show the tab bar
+"
+"   " configure indent guides
+"   let g:indent_guides_start_level = 1
+"   let g:indent_guides_guide_size  = 2
+"   " let g:indent_guides_auto_colors = 0
+"   " autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#222827 ctermbg=3
+"   " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#1E1D1B ctermbg=4
+" endif
 
 let loaded_matchparen = 1 " disable matching paren plugin
 
@@ -464,11 +451,6 @@ set listchars+=extends:>          " The character to show in the last column whe
                                   " off and the line continues beyond the right of the screen
 set listchars+=precedes:<         " The character to show in the last column when wrap is
                                   " off and the line continues beyond the right of the screen
-function! StripWhitespace ()
-    exec ':%s/ \+$//gc'
-endfunction
-nmap <leader><leader>st :call StripWhitespace ()<CR>
-
 " ---------------------------------------------------------------------------
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 " ---------------------------------------------------------------------------
@@ -515,16 +497,15 @@ nnoremap <leader>= :wincmd =<cr>
 " ---------------------------------------------------------------------------
 " Syntax highlighting
 " ---------------------------------------------------------------------------
-au BufRead,BufNewFile *.hamlc set ft=haml
-
 " Show syntax highlighting groups for word under cursor
-nmap <C-S-Y> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')
-endfunc
+" nmap <C-S-Y> :call <SID>SynStack()<CR>
+" function! <SID>SynStack()
+"   if !exists("*synstack")
+"     return
+"   endif
+"   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')
+" endfunc
+autocmd BufNewFile,BufRead *.slim set ft=slim
 
 " ----------------------------------------------------------------------------
 " Smart Inserting
@@ -566,18 +547,6 @@ function! s:HighlightLongLines(width)
 endfunction
 
 " ---------------------------------------------------------------------------
-" Speed
-" ---------------------------------------------------------------------------
-" Turn off active error checking for slow-to-compile languages
-"
-" there may be a way to speed up the checking but this fix works and I care
-" more about fast buffer switching than syntax checking.
-" ---------------------------------------------------------------------------
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['haml', 'scss', 'sass'] }
-
-" ---------------------------------------------------------------------------
 " CSS
 " ---------------------------------------------------------------------------
 " alphabetize a css file
@@ -588,28 +557,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " ----------------------------------------------------------------------------
 " automatically reload vimrc when it's saved
 " au BufWritePost .vimrc so ~/.vimrc
-
-" ----------------------------------------------------------------------------
-" under persistence
-" ----------------------------------------------------------------------------
-if exists("+undofile")
-  " undofile - This allows you to use usdos after exiting and restarting
-  " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
-  " :help undo-persistence
-  " This is only present in 7.3+
-  if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
-  endif
-  set undodir=./.vim-undo//
-  set undodir+=~/.vim/undo//
-  set undofile
-endif
-
-" ----------------------------------------------------------------------------
-" easymotion
-" ----------------------------------------------------------------------------
-let g:EasyMotion_leader_key = '<space>'
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 
 " ----------------------------------------------------------------------------
 " scrolling at edges
@@ -652,12 +599,12 @@ nmap <leader><leader>z :so $VIMRUNTIME/syntax/hitest.vim
 " ---------------------------------------------------------------------------
 " Switch
 " ---------------------------------------------------------------------------
-nnoremap - :Switch<CR>
-let g:switch_custom_definitions =
-    \ [
-    \   { '\(\k\+\)(&:\(\S\+\))': '\1 { |x| x\.\2 }' },
-    \   { '\(\k\+\)\s\={ |\(\k\+\)| \2.\(\S\+\) }': '\1(&:\3)' },
-    \ ]
+" nnoremap - :Switch<CR>
+" let g:switch_custom_definitions =
+"     \ [
+"     \   { '\(\k\+\)(&:\(\S\+\))': '\1 { |x| x\.\2 }' },
+"     \   { '\(\k\+\)\s\={ |\(\k\+\)| \2.\(\S\+\) }': '\1(&:\3)' },
+"     \ ]
 
 " ---------------------------------------------------------------------------
 " SplitJoin

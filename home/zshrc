@@ -25,4 +25,14 @@ if [[ ! $TERM =~ screen ]]; then
   $(tmux)
 fi
 
+# nvm things
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# added by travis gem
+[ -f /Users/wyang/.travis/travis.sh ] && source /Users/wyang/.travis/travis.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

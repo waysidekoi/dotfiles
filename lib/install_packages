@@ -1,11 +1,17 @@
 #!/bin/bash
+set -e
 
 echo ""
 echo "Install packages"
 echo ""
 
-# Install git
-brew install git
+if ! [ -x "$(command -v brew)" ];
+  # Install brew
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  brew update
+fi
 
-# Install brew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if ! [ -x "$(command -v git)" ];
+  # Install git
+  brew install git
+fi
