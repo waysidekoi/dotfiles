@@ -1,7 +1,7 @@
 alias reload!='. ~/.zshrc'
 alias e='vim'
 
-alias vim='/usr/local/bin/mvim -v'
+alias vim='/opt/homebrew/bin/mvim -v'
 
 # cd
 alias ..='cd ..'

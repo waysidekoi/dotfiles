@@ -20,7 +20,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " plugins
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-rails.git'
 " Bundle 'tpope/vim-rake.git'
 " Bundle 'tpope/vim-bundler.git'
 Bundle 'tomtom/tcomment_vim.git'
