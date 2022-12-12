@@ -10,3 +10,4 @@ export PATH="$ZSH/bin:$PATH"
 # MISC
 export EDITOR='vim'
 export ZDOTDIR=$HOME
+. "$HOME/.cargo/env"
