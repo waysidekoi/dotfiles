@@ -8,8 +8,6 @@ call vundle#begin()
 " required!
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'hashivim/vim-terraform'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 
 " My Bundles here
 " text objects
@@ -29,7 +27,7 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle "scrooloose/nerdtree.git"
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 
 " YouCompleteMe
 " delete me if unnecessary
