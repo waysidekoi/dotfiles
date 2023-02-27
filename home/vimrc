@@ -7,6 +7,9 @@ call vundle#begin()
 " let Vundle manage Vundle
 " required!
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'hashivim/vim-terraform'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " My Bundles here
 " text objects
@@ -79,6 +82,8 @@ Bundle 'tpope/vim-surround.git'
 
 " auto manipulators
 Bundle 'tpope/vim-endwise'
+
+Bundle 'sheerun/vim-polyglot'
 
 " themes
 " Bundle 'thedeeno/molokai'
