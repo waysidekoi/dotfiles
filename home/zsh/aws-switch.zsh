@@ -1,7 +1,11 @@
 aws-switch() {
   local input_profile="$1"
+  local profile
 
-  profiles=("${(@f)$(aws configure list-profiles)}")
+  profiles=()
+  while IFS= read -r line; do
+    [[ -n $line ]] && profiles+=("$line")
+  done < <(aws configure list-profiles)
 
   if [[ -n "$input_profile" ]]; then
     profile="$input_profile"
@@ -14,15 +18,15 @@ aws-switch() {
     echo "-----------------------------"
     echo "📋 Available AWS SSO Profiles:"
     echo "-----------------------------"
-    for i in "${!profiles[@]}"; do
-      printf "%d) %s\n" "$((i + 1))" "${profiles[$i]}"
+    for i in {1..${#profiles[@]}}; do
+      echo "$i) ${profiles[$i]}"
     done
 
     echo ""
     read "selection?👉 Enter the number of the profile to switch to: "
 
     if [[ "$selection" =~ ^[0-9]+$ ]] && (( selection >= 1 && selection <= ${#profiles[@]} )); then
-      profile="${profiles[$((selection - 1))]}"
+      profile="${profiles[$selection]}"
     else
       echo "❌ Invalid selection: $selection"
       return 1
@@ -44,7 +48,8 @@ aws-switch() {
   unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
 
   echo "🌍 Exporting SSO credentials for: $profile"
-  if ! creds_output=$(aws configure export-credentials --profile "$profile" --format env 2>&1); then
+  creds_output=$(aws configure export-credentials --profile "$profile" --format env 2>&1)
+  if [[ $? -ne 0 ]]; then
     echo "❌ Failed to export credentials for profile: $profile"
     echo "$creds_output"
     return 1
