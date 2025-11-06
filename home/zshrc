@@ -23,17 +23,13 @@ if [[ ! $TERM =~ screen ]]; then
   $(tmux)
 fi
 
-# nvm things
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/sbin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
 source "$HOME/.cargo/env"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bugfix when running rails:
 # objc[18501]: +[__NSCFConstantString initialize] may have been in progress in another thread when fork() was called.
